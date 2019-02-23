@@ -1,0 +1,137 @@
+
+
+
+@main("数独") {
+  <script src="@routes.Assets.versioned("javascripts/sudokuScript.js")" type="text/javascript"></script>
+
+  このページは数独が苦手な方のために作成されました。<br>
+  以下の9x9マスに問題を入れボタンを押すと答えを返します。
+
+  <form action="" name="boardForm" method="post">
+    <div class="row">
+      <ul class="square">
+        <li><input class="graySquare" maxlength="1" type="text" id="s00"></li>
+        <li><input class="graySquare" maxlength="1" type="text" id="s01"></li>
+        <li><input class="graySquare" maxlength="1" type="text" id="s02"></li>
+        <li><input maxlength="1" type="text" id="s03"></li>
+        <li><input maxlength="1" type="text" id="s04"></li>
+        <li><input maxlength="1" type="text" id="s05"></li>
+        <li><input class="graySquare" maxlength="1" type="text" id="s06"></li>
+        <li><input class="graySquare" maxlength="1" type="text" id="s07"></li>
+        <li><input class="graySquare" maxlength="1" type="text" id="s08"></li>
+      </ul>
+    </div>
+    <div class="row">
+      <ul class="square">
+        <li><input class="graySquare" maxlength="1" type="text" id="s10"></li>
+        <li><input class="graySquare" maxlength="1" type="text" id="s11"></li>
+        <li><input class="graySquare" maxlength="1" type="text" id="s12"></li>
+        <li><input maxlength="1" type="text" id="s13"></li>
+        <li><input maxlength="1" type="text" id="s14"></li>
+        <li><input maxlength="1" type="text" id="s15"></li>
+        <li><input class="graySquare" maxlength="1" type="text" id="s16"></li>
+        <li><input class="graySquare" maxlength="1" type="text" id="s17"></li>
+        <li><input class="graySquare" maxlength="1" type="text" id="s18"></li>
+      </ul>
+    </div>
+    <div class="row">
+      <ul class="square">
+        <li><input class="graySquare" maxlength="1" type="text" id="s20"></li>
+        <li><input class="graySquare" maxlength="1" type="text" id="s21"></li>
+        <li><input class="graySquare" maxlength="1" type="text" id="s22"></li>
+        <li><input maxlength="1" type="text" id="s23"></li>
+        <li><input maxlength="1" type="text" id="s24"></li>
+        <li><input maxlength="1" type="text" id="s25"></li>
+        <li><input class="graySquare" maxlength="1" type="text" id="s26"></li>
+        <li><input class="graySquare" maxlength="1" type="text" id="s27"></li>
+        <li><input class="graySquare" maxlength="1" type="text" id="s28"></li>
+      </ul>
+    </div>
+    <div class="row">
+      <ul class="square">
+        <li><input maxlength="1" type="text" id="s30"></li>
+        <li><input maxlength="1" type="text" id="s31"></li>
+        <li><input maxlength="1" type="text" id="s32"></li>
+        <li><input class="graySquare" maxlength="1" type="text" id="s33"></li>
+        <li><input class="graySquare" maxlength="1" type="text" id="s34"></li>
+        <li><input class="graySquare" maxlength="1" type="text" id="s35"></li>
+        <li><input maxlength="1" type="text" id="s36"></li>
+        <li><input maxlength="1" type="text" id="s37"></li>
+        <li><input maxlength="1" type="text" id="s38"></li>
+      </ul>
+    </div>
+    <div class="row">
+      <ul class="square">
+        <li><input maxlength="1" type="text" id="s40"></li>
+        <li><input maxlength="1" type="text" id="s41"></li>
+        <li><input maxlength="1" type="text" id="s42"></li>
+        <li><input class="graySquare" maxlength="1" type="text" id="s43"></li>
+        <li><input class="graySquare" maxlength="1" type="text" id="s44"></li>
+        <li><input class="graySquare" maxlength="1" type="text" id="s45"></li>
+        <li><input maxlength="1" type="text" id="s46"></li>
+        <li><input maxlength="1" type="text" id="s47"></li>
+        <li><input maxlength="1" type="text" id="s48"></li>
+      </ul>
+    </div>
+    <div class="row">
+      <ul class="square">
+        <li><input maxlength="1" type="text" id="s50"></li>
+        <li><input maxlength="1" type="text" id="s51"></li>
+        <li><input maxlength="1" type="text" id="s52"></li>
+        <li><input class="graySquare" maxlength="1" type="text" id="s53"></li>
+        <li><input class="graySquare" maxlength="1" type="text" id="s54"></li>
+        <li><input class="graySquare" maxlength="1" type="text" id="s55"></li>
+        <li><input maxlength="1" type="text" id="s56"></li>
+        <li><input maxlength="1" type="text" id="s57"></li>
+        <li><input maxlength="1" type="text" id="s58"></li>
+      </ul>
+    </div>
+    <div class="row">
+      <ul class="square">
+        <li><input class="graySquare" maxlength="1" type="text" id="s60"></li>
+        <li><input class="graySquare" maxlength="1" type="text" id="s61"></li>
+        <li><input class="graySquare" maxlength="1" type="text" id="s63"></li>
+        <li><input maxlength="1" type="text" id="s62"></li>
+        <li><input maxlength="1" type="text" id="s64"></li>
+        <li><input maxlength="1" type="text" id="s65"></li>
+        <li><input class="graySquare" maxlength="1" type="text" id="s66"></li>
+        <li><input class="graySquare" maxlength="1" type="text" id="s67"></li>
+        <li><input class="graySquare" maxlength="1" type="text" id="s68"></li>
+      </ul>
+    </div>
+    <div class="row">
+      <ul class="square">
+        <li><input class="graySquare" maxlength="1" type="text" id="s70"></li>
+        <li><input class="graySquare" maxlength="1" type="text" id="s71"></li>
+        <li><input class="graySquare" maxlength="1" type="text" id="s72"></li>
+        <li><input maxlength="1" type="text" id="s73"></li>
+        <li><input maxlength="1" type="text" id="s74"></li>
+        <li><input maxlength="1" type="text" id="s75"></li>
+        <li><input class="graySquare" maxlength="1" type="text" id="s76"></li>
+        <li><input class="graySquare" maxlength="1" type="text" id="s77"></li>
+        <li><input class="graySquare" maxlength="1" type="text" id="s78"></li>
+      </ul>
+    </div>
+    <div class="row">
+      <ul class="square">
+        <li><input class="graySquare" maxlength="1" type="text" id="s80"></li>
+        <li><input class="graySquare" maxlength="1" type="text" id="s81"></li>
+        <li><input class="graySquare" maxlength="1" type="text" id="s82"></li>
+        <li><input maxlength="1" type="text" id="s83"></li>
+        <li><input maxlength="1" type="text" id="s84"></li>
+        <li><input maxlength="1" type="text" id="s85"></li>
+        <li><input class="graySquare" maxlength="1" type="text" id="s86"></li>
+        <li><input class="graySquare" maxlength="1" type="text" id="s87"></li>
+        <li><input class="graySquare" maxlength="1" type="text" id="s88"></li>
+      </ul>
+    </div>
+  </form>
+  <div class="row">
+
+  </div>
+  <input type="button" id="sendButton" name="sendButton" width="161"
+  height="100" class="btn btn-primary" value="答えを求める">
+  <input type="button" id="clearButton" name="clearButton" class="btn btn-danger" value="全消去">
+
+
+}
