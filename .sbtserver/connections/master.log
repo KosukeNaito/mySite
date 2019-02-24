@@ -8,3 +8,9 @@ Taking next connection to: 60942
 Checking to see if clients are empty...
 We have 1 non-daemon clients, continuing serving connections.
 Taking next connection to: 60942
+Checking to see if clients are empty...
+No non-daemon clients connected after 3 min. Shutting down.
+Server socket thread exiting.
+0 clients open, will close them...
+All client sockets have been closed.
+Closing the 24104@pc logs at Sun Feb 24 22:48:23 JST 2019, goodbye.
