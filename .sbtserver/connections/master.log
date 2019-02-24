@@ -1,16 +1,13 @@
-New log file opened at Sun Feb 24 22:42:22 JST 2019 by 24104@pc
-Taking next connection to: 60942
-New client attempting to connect on port: 60944-60942
-  Address = /192.168.3.10:60942
-This client on port 60944 has uuid b3bac8da-39af-4de8-bc3b-b847f85c7cf7 configName play-fork-run humanReadableName Play Fork Run protocolVersion 1 featureTags Vector()
-Connected Clients: play-fork-run-b3bac8da-39af-4de8-bc3b-b847f85c7cf7
-Taking next connection to: 60942
-Checking to see if clients are empty...
-We have 1 non-daemon clients, continuing serving connections.
-Taking next connection to: 60942
+New log file opened at Sun Feb 24 23:34:33 JST 2019 by 29392@pc
+Taking next connection to: 63997
+New client attempting to connect on port: 63999-63997
+  Address = /192.168.3.10:63997
+This client on port 63999 has uuid 8282f39b-56a7-4737-a56e-9f2a76c8c2a5 configName play-fork-run humanReadableName Play Fork Run protocolVersion 1 featureTags Vector()
+Connected Clients: play-fork-run-8282f39b-56a7-4737-a56e-9f2a76c8c2a5
+Taking next connection to: 63997
 Checking to see if clients are empty...
 No non-daemon clients connected after 3 min. Shutting down.
 Server socket thread exiting.
 0 clients open, will close them...
 All client sockets have been closed.
-Closing the 24104@pc logs at Sun Feb 24 22:48:23 JST 2019, goodbye.
+Closing the 29392@pc logs at Sun Feb 24 23:37:34 JST 2019, goodbye.
