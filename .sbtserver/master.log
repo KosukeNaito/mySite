@@ -8328,3 +8328,10 @@ Copy resource mappings:
 Total time: 13 s, completed 2019/02/24 19:16:10
 > server-post-command-cleanup
 > server-handle-next-server-request
+Done executing sbt server engine, result Right(Exit(0))
+Closing listening server socket
+Waiting for socket thread
+Waiting for request processor thread
+Waiting for command engine result
+Returning control to sbt launcher with result Exit(0)
+Closing the 20624@pc logs at Sun Feb 24 19:18:40 JST 2019, goodbye.
