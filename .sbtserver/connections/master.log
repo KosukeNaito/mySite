@@ -1,13 +1,31 @@
-New log file opened at Sun Feb 24 17:47:06 JST 2019 by 18736@pc
-Taking next connection to: 55314
-New client attempting to connect on port: 55315-55314
-  Address = /192.168.3.10:55314
-This client on port 55315 has uuid a8751ed5-f7d6-48a3-b4f6-5b2b4cd60ace configName play-fork-run humanReadableName Play Fork Run protocolVersion 1 featureTags Vector()
-Connected Clients: play-fork-run-a8751ed5-f7d6-48a3-b4f6-5b2b4cd60ace
-Taking next connection to: 55314
+New log file opened at Sun Feb 24 19:08:43 JST 2019 by 20624@pc
+Taking next connection to: 56829
+New client attempting to connect on port: 56830-56829
+  Address = /192.168.3.10:56829
+This client on port 56830 has uuid 4ffcfbfc-9a72-4639-b4ef-d1f686b2ae1e configName play-fork-run humanReadableName Play Fork Run protocolVersion 1 featureTags Vector()
+Connected Clients: play-fork-run-4ffcfbfc-9a72-4639-b4ef-d1f686b2ae1e
+Taking next connection to: 56829
 Checking to see if clients are empty...
-No non-daemon clients connected after 3 min. Shutting down.
-Server socket thread exiting.
-0 clients open, will close them...
-All client sockets have been closed.
-Closing the 18736@pc logs at Sun Feb 24 17:50:11 JST 2019, goodbye.
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 56829
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 56829
+New client attempting to connect on port: 57178-56829
+  Address = /192.168.3.10:56829
+Handshake exception on socket: 57178
+sbt.impl.ipc.HandshakeException: Unable to perform handshake
+	at sbt.impl.ipc.Peer.handshake(IPC.scala:46)
+	at sbt.impl.ipc.MultiClientServer.<init>(IPC.scala:150)
+	at sbt.server.SbtServerSocketHandler$$anon$1.run(SbtServerSocketHandler.scala:43)
+Caused by: java.io.EOFException
+	at java.io.DataInputStream.readInt(DataInputStream.java:392)
+	at sbt.impl.ipc.Peer.receive(IPC.scala:95)
+	at sbt.impl.ipc.Peer.handshake(IPC.scala:49)
+	... 2 more
+Taking next connection to: 56829
+New client attempting to connect on port: 57179-56829
+  Address = /192.168.3.10:56829
+This client on port 57179 has uuid 6e2bf63d-099a-48b3-b4e4-e172c258dfb5 configName play-fork-run humanReadableName Play Fork Run protocolVersion 1 featureTags Vector()
+Connected Clients: play-fork-run-6e2bf63d-099a-48b3-b4e4-e172c258dfb5
+Taking next connection to: 56829
