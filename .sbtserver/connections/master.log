@@ -1,49 +1,13 @@
-New log file opened at Sat Feb 23 17:09:42 JST 2019 by 57992@pc
-Taking next connection to: 54155
-New client attempting to connect on port: 54156-54155
-  Address = /192.168.1.4:54155
-This client on port 54156 has uuid e38d2507-82d2-4acf-bce2-c251328666cc configName play-fork-run humanReadableName Play Fork Run protocolVersion 1 featureTags Vector()
-Connected Clients: play-fork-run-e38d2507-82d2-4acf-bce2-c251328666cc
-Taking next connection to: 54155
-Checking to see if clients are empty...
-We have 1 non-daemon clients, continuing serving connections.
-Taking next connection to: 54155
-Checking to see if clients are empty...
-We have 1 non-daemon clients, continuing serving connections.
-Taking next connection to: 54155
-Checking to see if clients are empty...
-We have 1 non-daemon clients, continuing serving connections.
-Taking next connection to: 54155
-Checking to see if clients are empty...
-We have 1 non-daemon clients, continuing serving connections.
-Taking next connection to: 54155
-Checking to see if clients are empty...
-We have 1 non-daemon clients, continuing serving connections.
-Taking next connection to: 54155
-Checking to see if clients are empty...
-We have 1 non-daemon clients, continuing serving connections.
-Taking next connection to: 54155
-Checking to see if clients are empty...
-We have 1 non-daemon clients, continuing serving connections.
-Taking next connection to: 54155
-Checking to see if clients are empty...
-We have 1 non-daemon clients, continuing serving connections.
-Taking next connection to: 54155
-Checking to see if clients are empty...
-We have 1 non-daemon clients, continuing serving connections.
-Taking next connection to: 54155
-Checking to see if clients are empty...
-We have 1 non-daemon clients, continuing serving connections.
-Taking next connection to: 54155
-Checking to see if clients are empty...
-We have 1 non-daemon clients, continuing serving connections.
-Taking next connection to: 54155
-Checking to see if clients are empty...
-We have 1 non-daemon clients, continuing serving connections.
-Taking next connection to: 54155
+New log file opened at Sun Feb 24 17:47:06 JST 2019 by 18736@pc
+Taking next connection to: 55314
+New client attempting to connect on port: 55315-55314
+  Address = /192.168.3.10:55314
+This client on port 55315 has uuid a8751ed5-f7d6-48a3-b4f6-5b2b4cd60ace configName play-fork-run humanReadableName Play Fork Run protocolVersion 1 featureTags Vector()
+Connected Clients: play-fork-run-a8751ed5-f7d6-48a3-b4f6-5b2b4cd60ace
+Taking next connection to: 55314
 Checking to see if clients are empty...
 No non-daemon clients connected after 3 min. Shutting down.
 Server socket thread exiting.
 0 clients open, will close them...
 All client sockets have been closed.
-Closing the 57992@pc logs at Sat Feb 23 17:48:43 JST 2019, goodbye.
+Closing the 18736@pc logs at Sun Feb 24 17:50:11 JST 2019, goodbye.
