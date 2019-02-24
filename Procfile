@@ -1,4 +1,5 @@
 
+web: node index.js
 web: target/universal/stage/bin/eiwatask
 -Dhttp.port=$PORT
 
