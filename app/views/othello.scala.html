@@ -1,9 +1,19 @@
 
-@main("オセロ­"){
+@main("白黒"){
   <script src="@routes.Assets.versioned("javascripts/othelloScript.js")" type="text/javascript"></script>
   <form action="" method="POST">
-    <img src="@routes.Assets.versioned("images/board.png")" id="board" width="400" height="400" style="position:absolute"></img>
+    <img src="@routes.Assets.versioned("images/board.png")" id="board" width="400" height="400" style="position:relative"></img>
     <div id="stone"></div>
-
   </form>
+  <form action="" method="POST">
+    <div>
+      <input type="button" id="comButton" name="comButton" width="161"
+      height="100" class="btn btn-primary" value="COM">
+      <input type="button" id="backButton" name="backButton" width="161"
+      height="100" class="btn btn-primary" value="一つ戻る">
+    </div>
+  </form>
+
+  COMボタンを押すことで相手のターンとなります。<br></br>
+  プレイヤー：黒、COM：白<br></br>
 }

@@ -3,6 +3,7 @@ package controllers;
 import play.mvc.*;
 
 import views.html.*;
+import othello.*;
 
 /**
  * This controller contains an action to handle HTTP requests
@@ -24,9 +25,19 @@ public class OthelloController extends Controller {
       String result = request().body().asText();
       System.out.println(result);
       String[] xyAndBoard = result.split(",",0);
+      Board board = new Board(xyAndBoard[1]);
+      int x = Character.getNumericValue(xyAndBoard[0].charAt(0));
+      int y = Character.getNumericValue(xyAndBoard[0].charAt(1));
       //ボードの情報を送って書き換え
       //クリックされたボードのインデックス情報を送って置けるかどうか判定　置けたら操作してボードの情報を返す　置けなかったらエラー返す
-      return ok(result);
+      return ok(board.playerPutStone(x,y));
+    }
+
+    public Result comPutStone(){
+      String result = request().body().asText();
+      System.out.println(result);
+      Board board = new Board(result);
+      return ok(board.comPutStone());
     }
 
 }

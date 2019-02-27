@@ -23,6 +23,9 @@ function moveInputs(e){
   var nowFocusedId = document.activeElement.id;
   var row = parseInt(nowFocusedId.charAt(1), 10);
   var col = parseInt(nowFocusedId.charAt(2), 10);
+  if(Number.isNaN(row) || Number.isNaN(col)){
+    return;
+  }
 
   if(e.keyCode == 37){//左
     if(col != 0){

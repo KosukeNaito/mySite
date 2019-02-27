@@ -1,5 +1,5 @@
-New log file opened at Sun Feb 24 23:34:33 JST 2019 by 29392@pc
-jvm 29392@pc
+New log file opened at Tue Feb 26 11:00:58 JST 2019 by 24564@pc
+jvm 24564@pc
 jvm vmName=Java HotSpot(TM) 64-Bit Server VM vmVendor=Oracle Corporation vmVersion=25.111-b14
 jvm specName=Java Virtual Machine Specification specVendor=Oracle Corporation specVersion=1.8
 jvm arguments: [-Xms256m, -Xmx1024m, -XX:MetaspaceSize=64m, -XX:MaxMetaspaceSize=256m]
@@ -27,7 +27,7 @@ sorting: ns: List(sbt.plugins.CorePlugin, sbt.plugins.IvyPlugin, sbt.plugins.Jvm
   :: sorted deduced result: List(sbt.plugins.CorePlugin, sbt.plugins.IvyPlugin, sbt.plugins.JvmPlugin, sbt.plugins.JUnitXmlReportPlugin)
 [Loading] Done in C:\Users\kosuke\Documents\html\eiwaTask\project, returning: (eiwatask-build)
 Loading project definition from C:\Users\kosuke\Documents\html\eiwaTask\project
-Running task... Cancel: sbt.TaskCancellationStrategy$Null$@5224f953, check cycles: false
+Running task... Cancel: sbt.TaskCancellationStrategy$Null$@3e159ee, check cycles: false
 
 Initial source changes: 
 	removed:Set()
@@ -67,10 +67,3 @@ Set current project to eiwaTask (in build file:/C:/Users/kosuke/Documents/html/e
 > iflast shell
 > server-send-ready-for-request
 > server-handle-next-server-request
-Done executing sbt server engine, result Right(Exit(0))
-Closing listening server socket
-Waiting for socket thread
-Waiting for request processor thread
-Waiting for command engine result
-Returning control to sbt launcher with result Exit(0)
-Closing the 29392@pc logs at Sun Feb 24 23:37:34 JST 2019, goodbye.

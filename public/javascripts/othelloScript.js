@@ -1,8 +1,10 @@
 
 document.addEventListener('DOMContentLoaded',addEvents,false);
 var boardState;
+var playerTurn = true;
+var boardStream = new Array();
 
-var State = {
+var BoardState = {
   EMPTY:0,
   BLACK:1,
   WHITE:2
@@ -13,15 +15,15 @@ $(function initBoard(){
   for(var i=0; i<8; i++){
     var row = new Array(8);
     for(var j=0; j<8; j++){
-      row[j] = State.EMPTY;
+      row[j] = BoardState.EMPTY;
     }
     boardState[i] = row;
   }
-  console.log(boardState);
-  boardState[3][3] = State.BLACK;
-  boardState[3][4] = State.WHITE;
-  boardState[4][3] = State.WHITE;
-  boardState[4][4] = State.BLACK;
+  boardState[3][3] = BoardState.BLACK;
+  boardState[3][4] = BoardState.WHITE;
+  boardState[4][3] = BoardState.WHITE;
+  boardState[4][4] = BoardState.BLACK;
+  addStream(BoardState.BLACK);
   var board = document.getElementById('board');
   var rect = board.getBoundingClientRect();
   var coordinate = new Object();
@@ -42,13 +44,18 @@ $(function initBoard(){
 function updateBoard(){
   for(var i=0; i<8; i++){
     for(var j=0; j<8; j++){
-      if(boardState[i][j] == State.BLACK){
+      if(boardState[i][j] == BoardState.BLACK){
         var code = '<img src="assets/images/black.png" width="40" height="40"></img>';
         var id = 'b'+i.toString() + j.toString();
         var putPosition = document.getElementById(id);
         putPosition.innerHTML = code;
-      }else if(boardState[i][j] == State.WHITE){
+      }else if(boardState[i][j] == BoardState.WHITE){
         var code = '<img src="assets/images/white.png" width="40" height="40"></img>';
+        var id = 'b'+i.toString() + j.toString();
+        var putPosition = document.getElementById(id);
+        putPosition.innerHTML = code;
+      }else{
+        var code = '';
         var id = 'b'+i.toString() + j.toString();
         var putPosition = document.getElementById(id);
         putPosition.innerHTML = code;
@@ -68,24 +75,105 @@ function getCoordinateFromIndex(x, y){
   return coordinate;
 }
 
+function addStream(turn){
+  var firstStream = new Object();
+  firstStream.turn = turn;
+  firstStream.board = $.extend(true, {}, boardState);
+  boardStream.push(firstStream);
+}
+
 function addEvents(){
   addImages();
+  addButton();
 }
 
 function addImages(){
   var board = document.getElementById('board');
-  board.addEventListener('click', sendCoordinate, false);
+  board.addEventListener('click', sendCoordinatePlayer, false);
 }
 
-function sendCoordinate(e){
-  var coordinate = getIndexFromCoordinate(e.x, e.y);
-  var xy = coordinate.x.toString() + coordinate.y.toString();
+function addButton(){
+  var comButton = document.getElementById('comButton');
+  comButton.addEventListener('click', onComButton, false);
+  var backButton = document.getElementById('backButton');
+  backButton.addEventListener('click', onBackButton, false);
+}
+
+function onBackButton(){
+  if(boardStream.length >= 2){
+      boardState = $.extend(true, {}, boardStream[boardStream.length-2].board);
+    if(boardStream[boardStream.length-2].turn == BoardState.BLACK){
+      playerTurn = true;
+    }else{
+      playerTurn = false;
+    }
+    boardStream.pop();
+    updateBoard();
+    console.log("back");
+    return;
+  }
+  console.log("cantBack");
+}
+
+function onComButton(){
+  playerTurn = false;
+  var boardStateStr = getBoardStateStr();
+  $.ajax({
+      type: "POST",
+      url: "/com",
+      dataType: "text",
+      contentType:"text/plain",
+      cache: false,
+      async: false,
+      data: boardStateStr,
+    }).done(function (data) {
+      console.log("done");
+      console.log(data);
+      if(data.length == 64){
+        var count = 0;
+        for(var i=0; i<8; i++){
+          for(var j=0; j<8; j++){
+            boardState[i][j] = parseInt(data.charAt(count));
+            count++;
+          }
+        }
+        addStream(BoardState.BLACK);
+        updateBoard();
+      }else if(data == "cantPut"){
+        alert("置けませんでした。あなたのターンです");
+        console.log("cantPut");
+      }
+      playerTurn = true;
+    }).fail(function (jqXHR, statusText, errorThrown) {
+      console.log("fail");
+    }).always(function () {
+      console.log("always");
+    });
+}
+
+function getBoardStateStr(){
   var boardStateStr = "";
   for(var i=0; i<8; i++){
     for(var j=0; j<8; j++){
       boardStateStr += boardState[i][j].toString();
     }
   }
+  return boardStateStr;
+}
+
+function sendCoordinatePlayer(e){
+  if(!playerTurn){
+    alert("COMのターンです。COMボタンを押してください。")
+    console.log("not player turn");
+    return;
+  }
+  var coordinate = getIndexFromCoordinate(e.x, e.y);
+  if(boardState[coordinate.x][coordinate.y] != BoardState.EMPTY){
+    console.log("stone is already put");
+    return;
+  }
+  var xy = coordinate.x.toString() + coordinate.y.toString();
+  var boardStateStr = getBoardStateStr();
   var sendStr = xy + "," + boardStateStr;
   $.ajax({
       type: "POST",
@@ -97,7 +185,22 @@ function sendCoordinate(e){
       data: sendStr,
     }).done(function (data) {
       console.log("done");
-
+      console.log(data);
+      if(data.length == 64){
+        playerTurn = false;
+        var count = 0;
+        for(var i=0; i<8; i++){
+          for(var j=0; j<8; j++){
+            boardState[i][j] = parseInt(data.charAt(count));
+            count++;
+          }
+        }
+        addStream(BoardState.WHITE);
+        updateBoard();
+      }else if(data == "cantPut"){
+        console.log("cantPut");
+        return;
+      }
     }).fail(function (jqXHR, statusText, errorThrown) {
       console.log("fail");
     }).always(function () {

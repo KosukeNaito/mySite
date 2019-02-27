@@ -11,3 +11,4 @@ POST    /run                        controllers.SudokuController.sudokuReciever(
 GET     /sudoku                     controllers.SudokuController.sudoku()
 GET     /othello                    controllers.OthelloController.othello()
 POST    /put                        controllers.OthelloController.playerPutStone()
+POST    /com                        controllers.OthelloController.comPutStone()
