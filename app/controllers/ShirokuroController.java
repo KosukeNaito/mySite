@@ -3,13 +3,13 @@ package controllers;
 import play.mvc.*;
 
 import views.html.*;
-import othello.*;
+import shirokuro.*;
 
 /**
  * This controller contains an action to handle HTTP requests
  * to the application's home page.
  */
-public class OthelloController extends Controller {
+public class ShirokuroController extends Controller {
 
     /**
      * An action that renders an HTML page with a welcome message.
@@ -17,8 +17,8 @@ public class OthelloController extends Controller {
      * this method will be called when the application receives a
      * <code>GET</code> request with a path of <code>/</code>.
      */
-    public Result othello() {
-        return ok(othello.render());
+    public Result shirokuro() {
+        return ok(shirokuro.render());
     }
 
     public Result playerPutStone(){

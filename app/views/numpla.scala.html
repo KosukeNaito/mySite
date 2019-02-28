@@ -2,10 +2,11 @@
 
 
 @main("数独") {
-  <script src="@routes.Assets.versioned("javascripts/sudokuScript.js")" type="text/javascript"></script>
+  <script src="@routes.Assets.versioned("javascripts/numplaScript.js")" type="text/javascript"></script>
 
-  このページは数独が苦手な方のために作成されました。<br>
-  以下の9x9マスに問題を入れボタンを押すと答えを返します。
+  このページはナンバープレースを自動で解くために作られました<br>
+  以下の9x9マスに問題を入れ青いボタンを押すと答えを返します。<br>
+  仮置きが必要な問題には対応しておりませんのでご了承ください。
 
   <form action="" name="boardForm" method="post">
     <div class="row">

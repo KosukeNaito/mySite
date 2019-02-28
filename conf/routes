@@ -7,8 +7,8 @@ GET     /                           controllers.TopController.top()
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
-POST    /run                        controllers.SudokuController.sudokuReciever()
-GET     /sudoku                     controllers.SudokuController.sudoku()
-GET     /othello                    controllers.OthelloController.othello()
-POST    /put                        controllers.OthelloController.playerPutStone()
-POST    /com                        controllers.OthelloController.comPutStone()
+POST    /run                        controllers.NumplaController.numplaReciever()
+GET     /numpla                     controllers.NumplaController.numpla()
+GET     /shirokuro                  controllers.ShirokuroController.shirokuro()
+POST    /put                        controllers.ShirokuroController.playerPutStone()
+POST    /com                        controllers.ShirokuroController.comPutStone()

@@ -3,19 +3,19 @@ package controllers;
 import play.mvc.*;
 
 import views.html.*;
-import sudoku.*;
+import numpla.*;
 
 /**
  * This controller contains an action to handle HTTP requests
  * to the application's home page.
  */
-public class SudokuController extends Controller {
+public class NumplaController extends Controller {
 
     /**
      * 数独のページを表示する
      */
-     public Result sudoku(){
-       return ok(sudoku.render());
+     public Result numpla(){
+       return ok(numpla.render());
      }
 
      /**
@@ -27,7 +27,7 @@ public class SudokuController extends Controller {
      * ３．問題が解けた場合　長さ81の文字列に答えを連ねていく。マスの左上から右下に向かう順。
      *      例："921456...312486"
      */
-     public Result sudokuReciever(){
+     public Result numplaReciever(){
        System.out.println("run!");
        char[] board = requestEditor(request().body().asText());
        WholeSquare wholeSquare = new WholeSquare();

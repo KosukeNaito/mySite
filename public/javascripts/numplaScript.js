@@ -65,7 +65,8 @@ function moveInputs(e){
     }
   }
 
-  document.getElementById("s" + row.toString() + col.toString()).focus();
+  //document.getElementById("s" + row.toString() + col.toString()).focus();
+  document.getElementById("s" + row.toString() + col.toString()).select();
 }
 
 function onSendButton(){

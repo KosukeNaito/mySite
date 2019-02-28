@@ -1,4 +1,4 @@
-package sudoku;
+package numpla;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -13,7 +13,7 @@ import java.lang.NumberFormatException;
  */
 public class WholeSquare {
 
-    private String filePath = "C:\\Users\\kosuke\\workspace\\Sudoku\\src\\sudoku\\question.csv";
+    private String filePath = "";
     private ArrayList<ArrayList<Square>> squares = new ArrayList<>();
     private boolean isUpdated = false;
 

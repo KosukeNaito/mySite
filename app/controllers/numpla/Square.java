@@ -1,4 +1,4 @@
-package sudoku;
+package numpla;
 
 import java.util.ArrayList;
 

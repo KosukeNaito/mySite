@@ -1,4 +1,4 @@
-package othello;
+package shirokuro;
 
 import java.util.Random;
 
