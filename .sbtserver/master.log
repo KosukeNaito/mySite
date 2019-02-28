@@ -1,5 +1,5 @@
-New log file opened at Tue Feb 26 11:00:58 JST 2019 by 24564@pc
-jvm 24564@pc
+New log file opened at Thu Feb 28 16:01:48 JST 2019 by 9988@pc
+jvm 9988@pc
 jvm vmName=Java HotSpot(TM) 64-Bit Server VM vmVendor=Oracle Corporation vmVersion=25.111-b14
 jvm specName=Java Virtual Machine Specification specVendor=Oracle Corporation specVersion=1.8
 jvm arguments: [-Xms256m, -Xmx1024m, -XX:MetaspaceSize=64m, -XX:MaxMetaspaceSize=256m]
@@ -27,7 +27,7 @@ sorting: ns: List(sbt.plugins.CorePlugin, sbt.plugins.IvyPlugin, sbt.plugins.Jvm
   :: sorted deduced result: List(sbt.plugins.CorePlugin, sbt.plugins.IvyPlugin, sbt.plugins.JvmPlugin, sbt.plugins.JUnitXmlReportPlugin)
 [Loading] Done in C:\Users\kosuke\Documents\html\eiwaTask\project, returning: (eiwatask-build)
 Loading project definition from C:\Users\kosuke\Documents\html\eiwaTask\project
-Running task... Cancel: sbt.TaskCancellationStrategy$Null$@3e159ee, check cycles: false
+Running task... Cancel: sbt.TaskCancellationStrategy$Null$@9c48f03, check cycles: false
 
 Initial source changes: 
 	removed:Set()
