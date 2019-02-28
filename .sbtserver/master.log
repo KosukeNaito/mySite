@@ -1,5 +1,5 @@
-New log file opened at Thu Feb 28 16:01:48 JST 2019 by 9988@pc
-jvm 9988@pc
+New log file opened at Thu Feb 28 16:42:37 JST 2019 by 29848@pc
+jvm 29848@pc
 jvm vmName=Java HotSpot(TM) 64-Bit Server VM vmVendor=Oracle Corporation vmVersion=25.111-b14
 jvm specName=Java Virtual Machine Specification specVendor=Oracle Corporation specVersion=1.8
 jvm arguments: [-Xms256m, -Xmx1024m, -XX:MetaspaceSize=64m, -XX:MaxMetaspaceSize=256m]
@@ -27,7 +27,7 @@ sorting: ns: List(sbt.plugins.CorePlugin, sbt.plugins.IvyPlugin, sbt.plugins.Jvm
   :: sorted deduced result: List(sbt.plugins.CorePlugin, sbt.plugins.IvyPlugin, sbt.plugins.JvmPlugin, sbt.plugins.JUnitXmlReportPlugin)
 [Loading] Done in C:\Users\kosuke\Documents\html\eiwaTask\project, returning: (eiwatask-build)
 Loading project definition from C:\Users\kosuke\Documents\html\eiwaTask\project
-Running task... Cancel: sbt.TaskCancellationStrategy$Null$@9c48f03, check cycles: false
+Running task... Cancel: sbt.TaskCancellationStrategy$Null$@4fdb1bc0, check cycles: false
 
 Initial source changes: 
 	removed:Set()
@@ -73,4 +73,4 @@ Waiting for socket thread
 Waiting for request processor thread
 Waiting for command engine result
 Returning control to sbt launcher with result Exit(0)
-Closing the 9988@pc logs at Thu Feb 28 16:10:49 JST 2019, goodbye.
+Closing the 29848@pc logs at Thu Feb 28 16:45:38 JST 2019, goodbye.

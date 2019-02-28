@@ -1,0 +1,33 @@
+New log file opened at Thu Feb 28 16:42:38 JST 2019 by 29848@pc
+Sending msg to client play-fork-run-51b1e37f-06db-4a32-b0b4-6a8df866948b: DetachedLogEvent(LogMessage(debug,sbt server socket logs are in: C:\Users\kosuke\Documents\html\eiwaTask\.sbtserver\connections\master.log))
+Sending msg to client play-fork-run-51b1e37f-06db-4a32-b0b4-6a8df866948b: DetachedLogEvent(LogMessage(debug,sbt general server logs are in: C:\Users\kosuke\Documents\html\eiwaTask\.sbtserver\master.log))
+Sending msg to client play-fork-run-51b1e37f-06db-4a32-b0b4-6a8df866948b: DetachedLogEvent(LogMessage(debug,sbt client logs are in: C:\Users\kosuke\Documents\html\eiwaTask\.sbtserver\connections\play-fork-run-51b1e37f-06db-4a32-b0b4-6a8df866948b.log))
+Reading next message from client.
+Got request: ListenToEvents()
+Reading next message from client.
+Sending msg to client play-fork-run-51b1e37f-06db-4a32-b0b4-6a8df866948b: DetachedLogEvent(LogMessage(debug,> --initialize))
+Sending msg to client play-fork-run-51b1e37f-06db-4a32-b0b4-6a8df866948b: (3,ReceivedResponse())
+Sending msg to client play-fork-run-51b1e37f-06db-4a32-b0b4-6a8df866948b: DetachedLogEvent(LogMessage(debug,> initialize))
+Sending msg to client play-fork-run-51b1e37f-06db-4a32-b0b4-6a8df866948b: DetachedLogEvent(LogMessage(debug,> onFailure load-failed))
+Sending msg to client play-fork-run-51b1e37f-06db-4a32-b0b4-6a8df866948b: DetachedLogEvent(LogMessage(debug,> boot))
+Sending msg to client play-fork-run-51b1e37f-06db-4a32-b0b4-6a8df866948b: DetachedLogEvent(LogMessage(debug,> reload))
+Sending msg to client play-fork-run-51b1e37f-06db-4a32-b0b4-6a8df866948b: DetachedLogEvent(LogMessage(debug,[Loading] Scanning directory C:\Users\kosuke\Documents\html\eiwaTask\project))
+Got request: UnlistenToEvents()
+Reading next message from client.
+Got request: ListenToValue(AttributeKey[play.forkrun.protocol.ForkConfig]("playForkConfig") in Scope(Build: file:/C:/Users/kosuke/Documents/html/eiwaTask/, , Project: ProjectReference(file:/C:/Users/kosuke/Documents/html/eiwaTask/,root)))
+Reading next message from client.
+Got request: UnlistenToValue(AttributeKey[play.forkrun.protocol.ForkConfig]("playForkConfig") in Scope(Build: file:/C:/Users/kosuke/Documents/html/eiwaTask/, , Project: ProjectReference(file:/C:/Users/kosuke/Documents/html/eiwaTask/,root)))
+Reading next message from client.
+Got request: ListenToValue(AttributeKey[play.runsupport.Reloader$CompileResult]("playForkReload") in Scope(Build: file:/C:/Users/kosuke/Documents/html/eiwaTask/, , Project: ProjectReference(file:/C:/Users/kosuke/Documents/html/eiwaTask/,root)))
+Reading next message from client.
+Got request: UnlistenToValue(AttributeKey[play.runsupport.Reloader$CompileResult]("playForkReload") in Scope(Build: file:/C:/Users/kosuke/Documents/html/eiwaTask/, , Project: ProjectReference(file:/C:/Users/kosuke/Documents/html/eiwaTask/,root)))
+Reading next message from client.
+Client play-fork-run-51b1e37f-06db-4a32-b0b4-6a8df866948b EOF, shutting down.
+Stopping client.
+Dropping message (4,ReceivedResponse()) to dead client play-fork-run-51b1e37f-06db-4a32-b0b4-6a8df866948b
+Dropping message (0,ReceivedResponse()) to dead client play-fork-run-51b1e37f-06db-4a32-b0b4-6a8df866948b
+Client play-fork-run-51b1e37f-06db-4a32-b0b4-6a8df866948b thread exiting.
+Dropping message (5,ReceivedResponse()) to dead client play-fork-run-51b1e37f-06db-4a32-b0b4-6a8df866948b
+Dropping message (6,ReceivedResponse()) to dead client play-fork-run-51b1e37f-06db-4a32-b0b4-6a8df866948b
+Dropping message (7,ReceivedResponse()) to dead client play-fork-run-51b1e37f-06db-4a32-b0b4-6a8df866948b
+Dropping message (8,ReceivedResponse()) to dead client play-fork-run-51b1e37f-06db-4a32-b0b4-6a8df866948b
