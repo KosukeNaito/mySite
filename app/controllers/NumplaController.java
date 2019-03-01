@@ -12,7 +12,7 @@ import numpla.*;
 public class NumplaController extends Controller {
 
     /**
-     * 数独のページを表示する
+     * ナンバープレースのページを表示する
      */
      public Result numpla(){
        return ok(numpla.render());
@@ -69,7 +69,7 @@ public class NumplaController extends Controller {
 
 
      /**
-     *  json形式で送られてくるデータから数独の要素となる
+     *  json形式で送られてくるデータからナンバープレースの要素となる
      *  数字のみ抽出しchar型の配列として返す。
      **/
      private char[] requestEditor(String requestStr){

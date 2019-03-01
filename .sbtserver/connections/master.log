@@ -1,13 +1,43 @@
-New log file opened at Thu Feb 28 20:28:37 JST 2019 by 17892@pc
-Taking next connection to: 62466
-New client attempting to connect on port: 62467-62466
-  Address = /192.168.1.4:62466
-This client on port 62467 has uuid 4c403d70-2072-4a9f-9c4e-acec05b17095 configName play-fork-run humanReadableName Play Fork Run protocolVersion 1 featureTags Vector()
-Connected Clients: play-fork-run-4c403d70-2072-4a9f-9c4e-acec05b17095
-Taking next connection to: 62466
+New log file opened at Sat Mar 02 04:40:53 JST 2019 by 103460@pc
+Taking next connection to: 56144
+New client attempting to connect on port: 56146-56144
+  Address = /192.168.1.4:56144
+This client on port 56146 has uuid dd169c91-7e9d-4e9f-a763-cf811ab1dfdf configName play-fork-run humanReadableName Play Fork Run protocolVersion 1 featureTags Vector()
+Connected Clients: play-fork-run-dd169c91-7e9d-4e9f-a763-cf811ab1dfdf
+Taking next connection to: 56144
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 56144
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 56144
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 56144
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 56144
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 56144
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 56144
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 56144
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 56144
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 56144
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 56144
 Checking to see if clients are empty...
 No non-daemon clients connected after 3 min. Shutting down.
 Server socket thread exiting.
 0 clients open, will close them...
 All client sockets have been closed.
-Closing the 17892@pc logs at Thu Feb 28 20:31:37 JST 2019, goodbye.
+Closing the 103460@pc logs at Sat Mar 02 05:13:54 JST 2019, goodbye.

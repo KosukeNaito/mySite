@@ -1,0 +1,18 @@
+@main("ユーザー登録"){
+  <script src="@routes.Assets.versioned("javascripts/registrationScript.js")" type="text/javascript"></script>
+  なんちゃってユーザー登録サイトです。<br>
+  初心者が作成したサイトであるため、暗号化などを行っておりません。<br>
+  普段使用しない適当なものをそれぞれ8文字以内で入力してください。
+  <form action="" name="boardForm" method="post">
+    <div>
+      ユーザー名
+      <input maxlength="8" type="text" id="name">
+    </div>
+    <div>
+      パスワード
+      <input maxlength="8" type="password" id="password">
+    </div>
+    <input type="button" id="registButton" name="registButton" width="161"
+    height="100" class="btn btn-primary" value="ユーザー登録">
+  </form>
+}

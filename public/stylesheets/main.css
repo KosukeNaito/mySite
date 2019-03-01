@@ -8,7 +8,7 @@ body{
 h1{
   font-size: 18pt;
   font-weight: bold;
-  background-color: #0000cc;
+  background-color: #808080;
   color: #ffffff;
   padding: 3px;
 }
@@ -21,42 +21,6 @@ h1{
   padding: 8px;
 }
 
-.bottomRightThick{
-  border-bottom: 1px black solid;
-  border-right: 1px black solid;
-}
-
-.bottomLeftThick{
-  border-bottom: 1px black solid;
-  border-left: 1px black solid;
-}
-
-.topRightThick{
-  border-top: 1px black solid;
-  border-right: 1px black solid;
-}
-
-.topleftThick{
-  border-top: 1px black solid;
-  border-left: 1px black solid;
-}
-
-.topThick{
-  border-top: 1px black solid;
-}
-
-.bottomThick{
-  border-bottom: 1px black solid;
-}
-
-.rightThick{
-  border-right: 1px black solid;
-
-}
-
-.leftThick{
-  border-left: 1px black solid;
-}
 
 .row {
   clear:both;

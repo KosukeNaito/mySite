@@ -10,6 +10,26 @@ var BoardState = {
   WHITE:2
 };
 
+function addEvents(){
+  addImages();
+  addButton();
+}
+
+function addImages(){
+  var board = document.getElementById('board');
+  board.addEventListener('click', sendCoordinatePlayer, false);
+}
+
+function addButton(){
+  var comButton = document.getElementById('comButton');
+  comButton.addEventListener('click', onComButton, false);
+  var backButton = document.getElementById('backButton');
+  backButton.addEventListener('click', onBackButton, false);
+  var restartButton = document.getElementById('restartButton');
+  restartButton.addEventListener('click', onRestartButton, false);
+}
+
+
 $(function initBoard(){
   boardState = new Array(8);
   for(var i=0; i<8; i++){
@@ -62,6 +82,23 @@ function updateBoard(){
       }
     }
   }
+  updateStoneCount();
+}
+
+function updateStoneCount(){
+  var blackStoneNum = 0;
+  var whiteStoneNum = 0;
+  for(var i=0; i<8; i++){
+    for(var j=0; j<8; j++){
+      if(boardState[i][j] == BoardState.BLACK){
+        blackStoneNum++;
+      }else if(boardState[i][j] == BoardState.WHITE){
+        whiteStoneNum++;
+      }
+    }
+  }
+  document.getElementById("blackStoneNum").innerHTML = blackStoneNum.toString();
+  document.getElementById("whiteStoneNum").innerHTML = whiteStoneNum.toString();
 }
 
 function getCoordinateFromIndex(x, y){
@@ -80,23 +117,6 @@ function addStream(turn){
   firstStream.turn = turn;
   firstStream.board = $.extend(true, {}, boardState);
   boardStream.push(firstStream);
-}
-
-function addEvents(){
-  addImages();
-  addButton();
-}
-
-function addImages(){
-  var board = document.getElementById('board');
-  board.addEventListener('click', sendCoordinatePlayer, false);
-}
-
-function addButton(){
-  var comButton = document.getElementById('comButton');
-  comButton.addEventListener('click', onComButton, false);
-  var backButton = document.getElementById('backButton');
-  backButton.addEventListener('click', onBackButton, false);
 }
 
 function onBackButton(){
@@ -146,9 +166,14 @@ function onComButton(){
       playerTurn = true;
     }).fail(function (jqXHR, statusText, errorThrown) {
       console.log("fail");
+      alert('不明なエラーです。');
     }).always(function () {
       console.log("always");
     });
+}
+
+function onRestartButton(){
+  location.href = '\\shirokuro';
 }
 
 function getBoardStateStr(){
@@ -203,6 +228,7 @@ function sendCoordinatePlayer(e){
       }
     }).fail(function (jqXHR, statusText, errorThrown) {
       console.log("fail");
+      alert('不明なエラーです。');
     }).always(function () {
       console.log("always");
     });

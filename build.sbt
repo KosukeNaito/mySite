@@ -11,8 +11,10 @@ resolvers += Resolver.url("Typesafe Ivy releases", url("https://repo.typesafe.co
 libraryDependencies ++= Seq(
   javaJdbc,
   cache,
-  javaWs
+  javaWs,
+  evolutions
 )
 
+lazy val myProject = (project in file(".")).enablePlugins(PlayJava, PlayEbean)
 
 fork in run := true

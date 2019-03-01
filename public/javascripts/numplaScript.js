@@ -178,6 +178,7 @@ function ajaxSetUp(){
       return data;
     }).fail(function (jqXHR, statusText, errorThrown) {
       console.log("fail");
+      alert('不明なエラーです。');
     }).always(function () {
       console.log("always");
     });
