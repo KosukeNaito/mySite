@@ -7,11 +7,23 @@ GET     /                           controllers.TopController.top()
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
+
+#Num_placeページ 実行時の答えが求まる
 POST    /run                        controllers.NumplaController.numplaReciever()
+#Num_placeページに飛ぶ
 GET     /numpla                     controllers.NumplaController.numpla()
+
+#Shirokuroページに飛ぶ
 GET     /shirokuro                  controllers.ShirokuroController.shirokuro()
+#Shirokuroページ ボードの画像がクリックされたとき、現在のボード情報を送りそれを元に黒石を置いた後のボード情報を返す
 POST    /put                        controllers.ShirokuroController.playerPutStone()
+#Shirokuroページ COMボタンが押されたとき現在のボード情報を送り白石を置いた後のボード情報を返す
 POST    /com                        controllers.ShirokuroController.comPutStone()
+
+#Userページに飛ぶ
 GET     /registration               controllers.RegistrationController.registration()
+#Userページのid,passwordを送りデータベースへの登録を試みる
 POST    /regist                     controllers.RegistrationController.registUser()
+
+#ユーザー認証が行われた際入力されたid,passwordとデータベースとの照合を行う
 POST    /login                      controllers.LoginController.isUserAuthSucceed()
