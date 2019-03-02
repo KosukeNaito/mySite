@@ -18,15 +18,15 @@ public class RegistrationController extends Controller{
   * "userName,password"の形で送られてくるユーザ情報の文字列をデータベースに登録するよう試みる
   **/
   public Result registUser(){
-    return ok(getRegistUserResult(stringToUser(request().body().asText())));
+    return ok(getRegistUserResult(stringToAccount(request().body().asText())));
   }
 
   /**
   *  "userName,password"の形で送られてきた文字列を受け取りUser型に変換して返す
   **/
-  private User stringToUser(String str){
+  private Account stringToAccount(String str){
     String[] userInfo = str.split(",",0);
-    User user = new User();
+    Account user = new Account();
     user.setUserName(userInfo[0]);
     user.setPassword(userInfo[1]);
     return user;
@@ -39,8 +39,8 @@ public class RegistrationController extends Controller{
   *  重複　　　　："duplication"
   *  謎の登録失敗："unknown"
   **/
-  private String getRegistUserResult(User user){
-    if(User.find.where().eq("userName",user.userName).findRowCount() > 0){
+  private String getRegistUserResult(Account user){
+    if(Account.find.where().eq("userName",user.userName).findRowCount() > 0){
       System.out.println("ユーザ名が重複しています。");
       return "duplication";
     }

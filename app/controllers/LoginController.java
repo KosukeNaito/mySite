@@ -23,8 +23,8 @@ public class LoginController extends Controller{
   */
   public Result isUserAuthSucceed(){
     String[] userInfo = request().body().asText().split(",", 0);
-    List<User> userList = User.getFind().all();
-    for(User user: userList){
+    List<Account> userList = Account.getFind().all();
+    for(Account user: userList){
       if(user.getUserName().equals(userInfo[0])){
         if(user.getPassword().equals(userInfo[1])){
           return ok("true");
