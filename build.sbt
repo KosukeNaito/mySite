@@ -15,7 +15,7 @@ libraryDependencies ++= Seq(
   evolutions
 )
 
-libraryDependencies += "postgresql" % "postgresql" % "9.4-1201-jdbc4"
+libraryDependencies += "postgresql" % "postgresql" % "9.4-1206-jdbc42"
 
 lazy val myProject = (project in file(".")).enablePlugins(PlayJava, PlayEbean)
 
