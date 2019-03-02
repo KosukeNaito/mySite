@@ -3,18 +3,18 @@
 
 # --- !Ups
 
-create table user (
+create table account (
   id                            bigint not null,
   user_name                     varchar(255) not null,
   password                      varchar(255) not null,
-  constraint uq_user_user_name unique (user_name),
-  constraint pk_user primary key (id)
+  constraint uq_account_user_name unique (user_name),
+  constraint pk_account primary key (id)
 );
-create sequence user_seq;
+create sequence account_seq;
 
 
 # --- !Downs
 
-drop table if exists user;
-drop sequence if exists user_seq;
+drop table if exists account;
+drop sequence if exists account_seq;
 
