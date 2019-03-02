@@ -16,6 +16,6 @@ POST    /put                        controllers.ShirokuroController.playerPutSto
 POST    /com                        controllers.ShirokuroController.comPutStone()
 
 GET     /registration               controllers.RegistrationController.registration()
-POST    /regist                     controllers.RegistrationController.registUser()
+POST    /regist                     controllers.RegistrationController.registAccount()
 
-POST    /login                      controllers.LoginController.isUserAuthSucceed()
+POST    /login                      controllers.LoginController.isAccountAuthSucceed()

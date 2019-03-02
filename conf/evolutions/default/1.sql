@@ -5,9 +5,9 @@
 
 create table account (
   id                            bigint not null,
-  user_name                     varchar(255) not null,
+  name                     varchar(255) not null,
   password                      varchar(255) not null,
-  constraint uq_account_user_name unique (user_name),
+  constraint uq_account_name unique (name),
   constraint pk_account primary key (id)
 );
 create sequence account_seq;
@@ -17,4 +17,3 @@ create sequence account_seq;
 
 drop table if exists account;
 drop sequence if exists account_seq;
-

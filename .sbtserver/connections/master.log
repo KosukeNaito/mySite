@@ -113,3 +113,9 @@ New client attempting to connect on port: 59817-59582
 This client on port 59817 has uuid ee8fcb27-f03f-41e0-9815-06fccc1c2df6 configName play-fork-run humanReadableName Play Fork Run protocolVersion 1 featureTags Vector()
 Connected Clients: play-fork-run-ee8fcb27-f03f-41e0-9815-06fccc1c2df6
 Taking next connection to: 59582
+Checking to see if clients are empty...
+No non-daemon clients connected after 3 min. Shutting down.
+Server socket thread exiting.
+0 clients open, will close them...
+All client sockets have been closed.
+Closing the 20128@pc logs at Sun Mar 03 05:10:19 JST 2019, goodbye.

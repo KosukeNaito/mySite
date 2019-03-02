@@ -18,7 +18,7 @@ public class Account extends Model{
 
   @NotNull
   @Column(unique=true)
-  public String userName;
+  public String name;
 
   @NotNull
   public String password;
@@ -29,16 +29,16 @@ public class Account extends Model{
     return find;
   }
 
-  public String getUserName(){
-    return this.userName;
+  public String getName(){
+    return this.name;
   }
 
   public String getPassword(){
     return this.password;
   }
 
-  public void setUserName(String userName){
-    this.userName = userName;
+  public void setName(String name){
+    this.name = name;
   }
 
   public void setPassword(String password){

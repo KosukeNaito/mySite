@@ -15,21 +15,21 @@ public class RegistrationController extends Controller{
   }
 
   /**
-  * "userName,password"の形で送られてくるユーザ情報の文字列をデータベースに登録するよう試みる
+  * "name,password"の形で送られてくるユーザ情報の文字列をデータベースに登録するよう試みる
   **/
-  public Result registUser(){
-    return ok(getRegistUserResult(stringToAccount(request().body().asText())));
+  public Result registAccount(){
+    return ok(getRegistAccountResult(stringToAccount(request().body().asText())));
   }
 
   /**
-  *  "userName,password"の形で送られてきた文字列を受け取りUser型に変換して返す
+  *  "name,password"の形で送られてきた文字列を受け取りAccount型に変換して返す
   **/
   private Account stringToAccount(String str){
-    String[] userInfo = str.split(",",0);
-    Account user = new Account();
-    user.setUserName(userInfo[0]);
-    user.setPassword(userInfo[1]);
-    return user;
+    String[] accountInfo = str.split(",",0);
+    Account account = new Account();
+    account.setName(accountInfo[0]);
+    account.setPassword(accountInfo[1]);
+    return account;
   }
 
   /**
@@ -39,14 +39,14 @@ public class RegistrationController extends Controller{
   *  重複　　　　："duplication"
   *  謎の登録失敗："unknown"
   **/
-  private String getRegistUserResult(Account user){
-    if(Account.find.where().eq("userName",user.userName).findRowCount() > 0){
+  private String getRegistAccountResult(Account account){
+    if(Account.find.where().eq("name",account.name).findRowCount() > 0){
       System.out.println("ユーザ名が重複しています。");
       return "duplication";
     }
 
     try{
-      user.save();
+      account.save();
       return "success";
     }catch(Exception e){
       System.out.println("error");

@@ -21,12 +21,12 @@ public class LoginController extends Controller{
   * idとpasswordの組み合わせが正しいものであった場合"true"の文字列を返す
   * idとpasswordの組み合わせが間違っていた場合"false"の文字列を返す
   */
-  public Result isUserAuthSucceed(){
-    String[] userInfo = request().body().asText().split(",", 0);
-    List<Account> userList = Account.getFind().all();
-    for(Account user: userList){
-      if(user.getUserName().equals(userInfo[0])){
-        if(user.getPassword().equals(userInfo[1])){
+  public Result isAccountAuthSucceed(){
+    String[] accountInfo = request().body().asText().split(",", 0);
+    List<Account> accountList = Account.getFind().all();
+    for(Account account: accountList){
+      if(account.getName().equals(accountInfo[0])){
+        if(account.getPassword().equals(accountInfo[1])){
           return ok("true");
         }
       }
