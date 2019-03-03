@@ -45,7 +45,7 @@ public class Account extends Model{
     this.password = password;
   }
 
-  public void setId(){
+  public static void setId(){
     id++;
   }
 
