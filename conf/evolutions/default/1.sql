@@ -4,11 +4,10 @@
 # --- !Ups
 
 create table account (
-  id                            bigint not null,
   name                     varchar(255) not null,
   password                      varchar(255) not null,
   constraint uq_account_name unique (name),
-  constraint pk_account primary key (id)
+  constraint pk_account primary key (name)
 );
 create sequence account_seq;
 
