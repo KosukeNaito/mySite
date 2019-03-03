@@ -14,6 +14,7 @@ import com.avaje.ebean.Model;
 public class Account extends Model{
 
   @Id
+  @GeneratedValue(strategy = GenerationType.AUTO)
   public Long id;
 
   @NotNull
