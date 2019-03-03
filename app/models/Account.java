@@ -24,8 +24,6 @@ public class Account extends Model{
   @NotNull
   public String password;
 
-  public static Long lastId = 0;
-
   public static Finder<Long, Account> find = new Finder<Long, Account>(Account.class);
 
   public static Find<Long, Account> getFind(){
@@ -46,11 +44,6 @@ public class Account extends Model{
 
   public void setPassword(String password){
     this.password = password;
-  }
-
-  public void setId(){
-    this.id = lastId;
-    lastId++;
   }
 
 }
