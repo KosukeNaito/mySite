@@ -14,7 +14,7 @@ import com.avaje.ebean.Model;
 public class Account extends Model{
 
   @Id
-  public static Long id=0;
+  public Long id;
 
   @NotNull
   @Column(unique=true)
@@ -22,6 +22,8 @@ public class Account extends Model{
 
   @NotNull
   public String password;
+
+  public static Long lastId = 0;
 
   public static Finder<Long, Account> find = new Finder<Long, Account>(Account.class);
 
@@ -45,8 +47,9 @@ public class Account extends Model{
     this.password = password;
   }
 
-  public static void setId(){
-    id++;
+  public void setId(){
+    this.id = lastId;
+    lastId++;
   }
 
 }
