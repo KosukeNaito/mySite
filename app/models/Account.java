@@ -13,8 +13,7 @@ import com.avaje.ebean.Model;
 @Entity
 public class Account extends Model{
 
-  @Id
-  public Long id;
+  
 
   @NotNull
   @Column(unique=true)
