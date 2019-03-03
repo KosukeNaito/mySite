@@ -14,9 +14,7 @@ import com.avaje.ebean.Model;
 public class Account extends Model{
 
   @Id
-  @column(name"id")
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
-  public Long id;
+  public static Long id=0;
 
   @NotNull
   @Column(unique=true)
@@ -45,6 +43,10 @@ public class Account extends Model{
 
   public void setPassword(String password){
     this.password = password;
+  }
+
+  public void setId(){
+    id++;
   }
 
 }
