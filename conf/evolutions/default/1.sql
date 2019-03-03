@@ -3,7 +3,7 @@
 
 # --- !Ups
 
-create table "account" (
+create table account (
   id                            bigint not null,
   name                     varchar(255) not null,
   password                      varchar(255) not null,
