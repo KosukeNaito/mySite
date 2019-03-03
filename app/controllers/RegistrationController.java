@@ -44,8 +44,9 @@ public class RegistrationController extends Controller{
       System.out.println("ユーザ名が重複しています。");
       return "duplication";
     }
+    account.save();
     try{
-      account.save();
+      //account.save();
       return "success";
     }catch(Exception e){
       System.out.println("error");
