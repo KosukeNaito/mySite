@@ -5,3 +5,9 @@ New client attempting to connect on port: 52350-52349
 This client on port 52350 has uuid d97eb1cc-24eb-4b82-b555-4f39c12033af configName play-fork-run humanReadableName Play Fork Run protocolVersion 1 featureTags Vector()
 Connected Clients: play-fork-run-d97eb1cc-24eb-4b82-b555-4f39c12033af
 Taking next connection to: 52349
+Checking to see if clients are empty...
+No non-daemon clients connected after 3 min. Shutting down.
+Server socket thread exiting.
+0 clients open, will close them...
+All client sockets have been closed.
+Closing the 3744@pc logs at Mon Mar 04 03:09:40 JST 2019, goodbye.

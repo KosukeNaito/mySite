@@ -67,3 +67,10 @@ Set current project to eiwaTask (in build file:/C:/Users/kosuke/Documents/html/e
 > iflast shell
 > server-send-ready-for-request
 > server-handle-next-server-request
+Done executing sbt server engine, result Right(Exit(0))
+Closing listening server socket
+Waiting for socket thread
+Waiting for request processor thread
+Waiting for command engine result
+Returning control to sbt launcher with result Exit(0)
+Closing the 3744@pc logs at Mon Mar 04 03:09:40 JST 2019, goodbye.
