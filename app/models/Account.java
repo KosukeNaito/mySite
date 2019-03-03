@@ -13,10 +13,11 @@ import com.avaje.ebean.Model;
 @Entity
 public class Account extends Model{
 
-  @Id
-  @GeneratedValue(strategy = GenerationType.AUTO)
-  public Long id;
 
+  //@GeneratedValue(strategy = GenerationType.AUTO)
+  //public Long id;
+
+  @Id
   @NotNull
   @Column(unique=true)
   public String name;
