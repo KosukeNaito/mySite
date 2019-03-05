@@ -114,6 +114,8 @@ function getCoordinateFromIndex(x, y){
   var board = document.getElementById('board');
   var rect = board.getBoundingClientRect();
   var coordinate = new Object();
+  console.log(getX());
+  console.log(getY());
   coordinate.x = x*50 + rect.left - getX();//window.pageXOffset;
   coordinate.y = y*50 + rect.top - getY();//window.pageYOffset;
   console.log(coordinate.x);
