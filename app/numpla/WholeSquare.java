@@ -8,32 +8,37 @@ import java.util.ArrayList;
 import java.lang.NumberFormatException;
 
 /**
- * マス全体を表すクラス
- * 9個のマスがブロックを作り9個のブロックがこのクラスである全体を表す
+ * マス（Squareクラス）の集合でナンバープレース全体を表すクラス
+ * 9個のマスがブロックを作り9個のブロックがこのクラスであるナンバープレース全体を表す
+ * 以下の一文字がマスを表し同一文字の塊がブロック、全体がこのクラスとなる。
+ * xxxyyyzzz
+ * xxxyyyzzz
+ * xxxyyyzzz
+ * aaabbbccc
+ * aaabbbccc
+ * aaabbbccc
+ * iiijjjkkk
+ * iiijjjkkk
+ * iiijjjkkk
  */
 public class WholeSquare {
 
-    private String filePath = "";
-    private ArrayList<ArrayList<Square>> squares = new ArrayList<>();
-    private boolean isUpdated = false;
+    private String filePath = "";//元々csvを読み込む形式で作っていたためにあるファイルパスの文字列
+    private ArrayList<ArrayList<Square>> squares = new ArrayList<>();//9x9の二次元配列で、マスの候補集合の9x9の集合を表す
+    private boolean isUpdated = false;//いずれかのマスの候補集合が更新されたかどうかを表す二値。更新されなかった場合falseとなり処理を中断する
 
+    /**
+    * コンストラクタ
+    */
     public WholeSquare(){
         initSquares();
         //readQuestion();
     }
 
-    public void setIsUpdated(boolean bool){
-        this.isUpdated = bool;
-    }
-
-    public boolean isUpdated(){
-        return isUpdated;
-    }
-
-    public void setSquares(ArrayList<ArrayList<Square>> squares){
-      this.squares = squares;
-    }
-
+    /**
+    * char型の文字列で送られてくるボード情報をメンバ変数のsquaresにあてはめるメソッド。
+    *
+    */
     public void setSquaresFromCharArray(char[] board){
       if(board.length != 81){
         System.out.println("charArrayのサイズを9x9の81でお願いします");
@@ -66,6 +71,12 @@ public class WholeSquare {
         return isAllFinished() && isBlockCorrect() && isColCorrect() && isRowCorrect();
     }
 
+    /**
+    * 問題を読み込んだ際に呼ばれる。
+    * 問題が正しい場合trueを返す。
+    * 問題が誤っている場合falseを返す。
+    * 違反例：行、列、ブロックのいずれかに同一の数字が入る
+    */
     public boolean isCorrectQuestion(){
         return isBlockCorrect() && isColCorrect() && isRowCorrect();
     }
@@ -140,6 +151,9 @@ public class WholeSquare {
         return true;
     }
 
+    /**
+    * 全マスの候補集合のサイズが1となった場合trueを返す。
+    */
     public boolean isAllFinished(){
         for(int i=0; i<squares.size(); i++){
             for(int j=0; j<squares.get(i).size(); j++){
@@ -161,10 +175,16 @@ public class WholeSquare {
         narrowCandidateBlock();
     }
 
+
+    /**
+    * 横方向（行）の情報を元に決定できる数字を決定する。
+    * 横方向の中である数字を候補に持つマスが一つである場合
+    * そのマスはその数字で決定となる。
+    */
     private void narrowCandidateHorizontal(){
-        for(int num=1; num<=9; num++) {
+        for(int num=1; num<=9; num++) {//ナンバープレースに使われる数字1から9を表す
             for (int i = 0; i < squares.size(); i++) {
-                int numCount = 0;
+                int numCount = 0;//numを候補に持つマスの数
                 int index = 0;
                 for (int j = 0; j < squares.get(i).size(); j++) {
                     if(squares.get(i).get(j).getNumCandidate().contains(num)){
@@ -179,10 +199,15 @@ public class WholeSquare {
         }
     }
 
+    /**
+    * 縦方向（列）の情報を元に決定できる数字を決定する。
+    * 縦方向の中である数字を候補に持つマスが一つである場合
+    * そのマスはその数字で決定となる。
+    */
     private void narrowCandidateVertical(){
-        for(int num=1; num<=9; num++) {
+        for(int num=1; num<=9; num++) {//ナンバープレースに使われる数字1から9を表す
             for (int i = 0; i < squares.size(); i++) {
-                int numCount = 0;
+                int numCount = 0;//numを候補に持つマスの数
                 int index = 0;
                 for (int j = 0; j < squares.get(i).size(); j++) {
                     if(squares.get(j).get(i).getNumCandidate().contains(num)){
@@ -197,6 +222,11 @@ public class WholeSquare {
         }
     }
 
+    /**
+    * 同一ブロック内の情報を元に決定できる数字を決定する。
+    * 同一ブロック内である数字を候補に持つマスが一つである場合
+    * そのマスはその数字で決定となる。
+    */
     private void narrowCandidateBlock(){
         for(int num=1; num<=9;num++) {
             int numCount=0;
@@ -378,8 +408,9 @@ public class WholeSquare {
     }
 
     /**
-     * 既に決定しているマスの情報を元に、水平方向のマスの候補を消す
-     */
+    * 既に決定している横方向（行）の情報を元に各マスの候補を減らす
+    * 同じ行で決定している数字がある場合、その行の他のマスにその数字が入ることはなくなり削除される。
+    */
     private void reduceCandidateHorizontal(int num, int row){
         for(int i=0; i<squares.get(row).size(); i++){
             if(!squares.get(row).get(i).isSet() && squares.get(row).get(i).getNumCandidate().contains(num)){
@@ -390,7 +421,8 @@ public class WholeSquare {
     }
 
     /**
-     * 既に決定しているマスの情報を元に、垂直方向のマスの候補を消す
+     * 既に決定している縦方向（列）の情報を元に各マスの候補を減らす
+     * 同じ列で決定している数字がある場合、その列の他のマスにその数字が入ることはなくなり削除される。
      * @param num
      * @param col
      */
@@ -404,7 +436,8 @@ public class WholeSquare {
     }
 
     /**
-     * 既に決定しているマスの情報を元に、ブロック内の候補を消す
+     *  既に決定しているブロック内の情報を元に各マスの候補を減らす
+     * 同じブロック内で決定している数字がある場合、そのブロック内の他のマスにその数字が入ることはなくなり削除される。
      * @param num
      * @param row
      * @param col
@@ -541,7 +574,7 @@ public class WholeSquare {
     }
 
     /**
-     * 数独全体を表示する
+     * ナンバープレース全体をコンソールに表示する。決まっていない場所は"*"が表示される
      */
     public void printSquares(){
         for(int i=0; i<squares.size(); i++){
@@ -617,8 +650,22 @@ public class WholeSquare {
         }
     }
 
+    //以下、ゲッターセッター
+
     public ArrayList<ArrayList<Square>> getSquares(){
         return squares;
+    }
+
+    public void setIsUpdated(boolean bool){
+        this.isUpdated = bool;
+    }
+
+    public boolean isUpdated(){
+        return isUpdated;
+    }
+
+    public void setSquares(ArrayList<ArrayList<Square>> squares){
+      this.squares = squares;
     }
 
 }

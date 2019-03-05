@@ -21,6 +21,14 @@ public class ShirokuroController extends Controller {
         return ok(shirokuro.render());
     }
 
+    /**
+    * x+y+","+boardInfo の形で送られてくる文字列を分割し、置けるかどうか判定。
+    * 置けた場合反転操作後のボード情報を返す。置けなかった場合エラーを表す"cantPut"の文字列を返す
+    * x：ボードのx座標を表す（横のインデックス）
+    * y：ボードのy座標を表す(縦のインデックス)
+    * boardInfo：左上から右下へむかってボード情報がはいる"00000110....221000"
+    * 空0 黒1 白2
+    **/
     public Result playerPutStone(){
       String result = request().body().asText();
       System.out.println(result);
@@ -28,11 +36,15 @@ public class ShirokuroController extends Controller {
       Board board = new Board(xyAndBoard[1]);
       int x = Character.getNumericValue(xyAndBoard[0].charAt(0));
       int y = Character.getNumericValue(xyAndBoard[0].charAt(1));
-      //ボードの情報を送って書き換え
-      //クリックされたボードのインデックス情報を送って置けるかどうか判定　置けたら操作してボードの情報を返す　置けなかったらエラー返す
       return ok(board.playerPutStone(x,y));
     }
 
+    /**
+    * ボードの情報が文字列で送られてくる。
+    * その情報を元に以下の操作を行う。
+    * ・石を置ける場合、石を置いて反転操作後のボード情報を返す
+    * ・石を置けない場合、エラーを表す"cantPut"の文字列を返す
+    **/
     public Result comPutStone(){
       String result = request().body().asText();
       System.out.println(result);

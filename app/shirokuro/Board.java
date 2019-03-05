@@ -4,10 +4,13 @@ import java.util.Random;
 
 public class Board {
 
-    private BoardState[][] board = new BoardState[8][8];
-    private boolean[][] canPut = new boolean[8][8];
-    private BoardState playerStone = BoardState.BLACK;
+    private BoardState[][] board = new BoardState[8][8];//ボードに置かれた石の情報を持つ
+    private boolean[][] canPut = new boolean[8][8];//ボード内でおける場所の情報を持つ。
+    private BoardState playerStone = BoardState.BLACK;//プレイヤーがどちらの色であるかを表す
 
+    /**
+    * ボードに置かれた石の情報。空、黒、白がある
+    */
     protected enum BoardState{
       EMPTY(0),
       BLACK(1),
@@ -23,6 +26,12 @@ public class Board {
       }
     }
 
+    /**
+    * プレイヤーが石を置いた座標を引数とする。
+    * 置ける場合、置いた後のボードの情報を文字列として返す。ボードの左上から右下へ流れる形で文字列が入る。
+    * 例："000001100200...000101"空：0 黒：1 白：2
+    * 置けなかった場合、エラーを表す"cantPut"の文字列を返す
+    */
     public String playerPutStone(int x, int y){
       if(this.calculateCanPut(x, y, this.playerStone)){
         this.board[x][y] = this.playerStone;
@@ -32,12 +41,22 @@ public class Board {
       return "cantPut";
     }
 
+    /**
+    * comが石を置くために、置ける場所を計算し置いた結果を返す。
+    * 置けた場合ボードの情報を文字列として返す。
+    * 置けなかった場合、エラーを表す"cantPut"の文字列を返す
+    */
     public String comPutStone(){
       this.calculateCanPutAll(this.getComStone());
 
       return this.comPutStoneRandom();
     }
 
+    /**
+     * 置ける場所からランダムに石を置く
+     * 置けた場合ボードの情報を文字列として返す。
+     * 置けなかった場合、エラーを表す"cantPut"の文字列を返す
+     */
     private String comPutStoneRandom(){
       int count=0;
       for(int i=0; i<8; i++){
@@ -119,6 +138,10 @@ public class Board {
 
     }
 
+    /**
+    * 引数i,jがインデックスputColorが置かれる石の色となる。
+    * ボードi,jのマスに石を置ける場合、trueを返す。置けない場合false
+    */
     public boolean calculateCanPut(int i, int j, BoardState putColor){
         if(putColor == BoardState.EMPTY){
             return false;
@@ -133,6 +156,10 @@ public class Board {
         return false;
     }
 
+    /**
+    * 引数x,yがインデックスputColorが石の色となる。
+    * xyに石を置いた場合に反転する石を反転しボード情報を表すメンバ変数に反映する
+    */
     public void turnBetween(int x, int y, BoardState putColor){
         boolean upFlag = canSandwichUp(x, y, putColor);
         boolean downFlag = canSandwichDown(x, y, putColor);
@@ -225,7 +252,9 @@ public class Board {
     }
 
     /**
-     *
+     *　メンバ変数のボード情報を元にボード情報文字列を作成し返す。
+     *  例："0000000000012....210000"
+     *  空：0 黒：1 白：2
      * @return
      */
     public String sendBoardStr(){
@@ -238,6 +267,10 @@ public class Board {
         return boardStateStr.toString();
     }
 
+    /**
+    * 引数i,jがインデックスputColorが置かれる石の色となる。
+    * i,jにputColorの石を置いた際に上に挟める石があるかどうかを返す。返せる場合true
+    */
     private boolean canSandwichUp(int i, int j, BoardState putColor){
         if(putColor == BoardState.BLACK) {
             for(int k=1; 0<=i-k; k++){
@@ -277,6 +310,10 @@ public class Board {
         return false;
     }
 
+    /**
+    * 引数i,jがインデックスputColorが置かれる石の色となる。
+    * i,jにputColorの石を置いた際に下に挟める石があるかかどうかを返す。返せる場合true
+    */
     private boolean canSandwichDown(int i, int j, BoardState putColor){
         if(putColor == BoardState.BLACK) {
             for(int k=1; i+k<8; k++){
@@ -316,6 +353,10 @@ public class Board {
         return false;
     }
 
+    /**
+    * 引数i,jがインデックスputColorが置かれる石の色となる。
+    * i,jにputColorの石を置いた際に右に挟める石があるかどうかを返す。返せる場合true
+    */
     private boolean canSandwichRight(int i, int j, BoardState putColor){
         if(putColor == BoardState.BLACK) {
             for(int k=1; j+k<8; k++){
@@ -355,6 +396,10 @@ public class Board {
         return false;
     }
 
+    /**
+    * 引数i,jがインデックスputColorが置かれる石の色となる。
+    * i,jにputColorの石を置いた際に左に挟める石があるかどうかを返す。返せる場合true
+    */
     private boolean canSandwichLeft(int i, int j, BoardState putColor){
         if(putColor == BoardState.BLACK) {
             for(int k=1; 0<=j-k; k++){
@@ -394,6 +439,10 @@ public class Board {
         return false;
     }
 
+    /**
+    * 引数i,jがインデックスputColorが置かれる石の色となる。
+    * i,jにputColorの石を置いた際に右上に挟める石があるかどうかを返す。返せる場合true
+    */
     private boolean canSandwichUpRight(int i, int j, BoardState putColor){
         if(putColor == BoardState.BLACK){
             for(int k=1; i-k>=0 || j+k<8; k++){
@@ -433,6 +482,10 @@ public class Board {
         return false;
     }
 
+    /**
+    * 引数i,jがインデックスputColorが置かれる石の色となる。
+    * i,jにputColorの石を置いた際に左上に挟める石があるかどうかを返す。返せる場合true
+    */
     private boolean canSandwichUpLeft(int i, int j, BoardState putColor){
         if(putColor == BoardState.BLACK){
             for(int k=1; i-k>=0 || j-k>=0; k++){
@@ -472,6 +525,10 @@ public class Board {
         return false;
     }
 
+    /**
+    * 引数i,jがインデックスputColorが置かれる石の色となる。
+    * i,jにputColorの石を置いた際に右下に挟める石があるかどうかを返す。返せる場合true
+    */
     private boolean canSandwichDownRight(int i, int j, BoardState putColor){
         if(putColor == BoardState.BLACK){
             for(int k=1; i+k<8 || j+k<8; k++){
@@ -511,6 +568,10 @@ public class Board {
         return false;
     }
 
+    /**
+    * 引数i,jがインデックスputColorが置かれる石の色となる。
+    * i,jにputColorの石を置いた際に左下に挟める石があるかどうかを返す。返せる場合true
+    */
     private boolean canSandwichDownLeft(int i, int j, BoardState putColor){
         if(putColor == BoardState.BLACK){
             for(int k=1; i+k<8 || j-k>=0; k++){
@@ -550,6 +611,9 @@ public class Board {
         return false;
     }
 
+    /**
+    * メンバ変数のプレイヤーの石の情報を元にコンピュータの石の情報を返す。
+    */
     public BoardState getComStone(){
       if(this.playerStone == BoardState.BLACK){
         return BoardState.WHITE;

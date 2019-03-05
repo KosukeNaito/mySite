@@ -3,11 +3,11 @@ package numpla;
 import java.util.ArrayList;
 
 /**
- * マスを表すクラス。候補が一つの場合決定しているとみなす
+ * マスを表すクラス。メンバ変数としてマスに入る候補を持つ。候補が一つの場合マスの数字が決定しているとみなす
  */
 public class Square {
 
-    private ArrayList<Integer> numCandidate = new ArrayList<>();//マスに入る候補
+    private ArrayList<Integer> numCandidate = new ArrayList<>();//マスに入る候補の集合
 
 
     /**
@@ -34,7 +34,8 @@ public class Square {
     }
 
     /**
-     * マスの数字がすでに決定している場合trueを返す
+     * マスの数字がすでに決定している場合（マスの候補が一つ）trueを返す
+     * 決定していない場合（マスの候補が複数）、falseを返す
      * @return
      */
     public boolean isSet(){
@@ -59,6 +60,8 @@ public class Square {
           System.out.println("1から9以外の数字が入っています");
       }
     }
+
+    //以下ゲッター
 
     public ArrayList<Integer> getNumCandidate(){
         return numCandidate;

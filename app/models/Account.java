@@ -20,16 +20,18 @@ public class Account extends Model{
   @Id
   @NotNull
   @Column(unique=true)
-  public String name;
+  public String name;//ユーザーネームを表す
 
   @NotNull
-  public String password;
+  public String password;//ユーザーのパスワードを表す
 
   public static Finder<Long, Account> find = new Finder<Long, Account>(Account.class);
 
   public static Find<Long, Account> getFind(){
     return find;
   }
+
+  //以下ゲッターセッター
 
   public String getName(){
     return this.name;

@@ -24,6 +24,7 @@
         <script src="@routes.Assets.versioned("javascripts/bootstrap.min.js")" type="text/javascript"></script>
     </head>
     <body>
+      <!-- ナビゲーションバー-->
       <div class="navbar navbar-default navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
           <div class="navbar-header">
@@ -47,6 +48,7 @@
          </div><!--/.nav-collapse -->
        </div>
       </div>
+      <!-- 他のhtmlがmainを読み込む場合その内容はここに入る-->
         @* And here's where we render the `Html` object containing
          * the page content. *@
         @content
