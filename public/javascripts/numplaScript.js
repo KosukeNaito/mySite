@@ -19,6 +19,10 @@ function addInputs(){
   document.addEventListener('keydown', moveInputs, false);
 }
 
+/**
+* 9x9のinput上で上下左右キーが押されたときフォーカスが移動するようにする
+* またフォーカス移動のみでなく要素の選択を行う
+*/
 function moveInputs(e){
   var nowFocusedId = document.activeElement.id;
   var row = parseInt(nowFocusedId.charAt(1), 10);
