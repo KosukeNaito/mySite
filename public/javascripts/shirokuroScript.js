@@ -108,18 +108,16 @@ function updateStoneCount(){
 }
 
 /**
-* クリックされた座標情報をボードのインデックス情報に変更し返す
+* インデックス情報を元に座標情報に変更し返す
 */
 function getCoordinateFromIndex(x, y){
   var board = document.getElementById('board');
   var rect = board.getBoundingClientRect();
   var coordinate = new Object();
-  console.log(getX());
-  console.log(getY());
   coordinate.x = x*50 + rect.left - getX();//window.pageXOffset;
   coordinate.y = y*50 + rect.top - getY();//window.pageYOffset;
-  console.log(coordinate.x);
-  console.log(coordinate.y);
+  //console.log(coordinate.x);
+  //console.log(coordinate.y);
   return coordinate;
 }
 
@@ -243,8 +241,8 @@ function sendCoordinatePlayer(e){
       async: false,
       data: sendStr,
     }).done(function (data) {
-      console.log("done");
-      console.log(data);
+      //console.log("done");
+      //console.log(data);
       if(data.length == 64){
         playerTurn = false;
         var count = 0;
@@ -257,14 +255,14 @@ function sendCoordinatePlayer(e){
         addStream(BoardState.WHITE);
         updateBoard();
       }else if(data == "cantPut"){
-        console.log("cantPut");
+        //console.log("cantPut");
         return;
       }
     }).fail(function (jqXHR, statusText, errorThrown) {
-      console.log("fail");
+      //console.log("fail");
       alert('不明なエラーです。');
     }).always(function () {
-      console.log("always");
+      //console.log("always");
     });
 }
 
@@ -272,8 +270,8 @@ function getIndexFromCoordinate(x, y){
   var board = document.getElementById('board');
   var rect = board.getBoundingClientRect();
   var coordinate = new Object();
-  coordinate.x = x - rect.left + window.pageXOffset;
-  coordinate.y = y - rect.top + window.pageYOffset;
+  coordinate.x = x + rect.left - getX();//window.pageXOffset;
+  coordinate.y = y + rect.top - getY();//window.pageYOffset;
   console.log(coordinate.x);
   console.log(coordinate.y);
   var isXdecided = true;
