@@ -270,8 +270,8 @@ function getIndexFromCoordinate(x, y){
   var board = document.getElementById('board');
   var rect = board.getBoundingClientRect();
   var coordinate = new Object();
-  coordinate.x = x + rect.left - getX();//window.pageXOffset;
-  coordinate.y = y + rect.top - getY();//window.pageYOffset;
+  coordinate.x = x - rect.left - getX();//window.pageXOffset;
+  coordinate.y = y - rect.top - getY();//window.pageYOffset;
   console.log(coordinate.x);
   console.log(coordinate.y);
   var isXdecided = true;
