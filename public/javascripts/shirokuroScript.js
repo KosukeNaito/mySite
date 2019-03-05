@@ -61,6 +61,9 @@ $(function initBoard(){
   updateBoard();
 });
 
+/**
+* htmlを書き換えることで画像の表示を変更しボードを描画する
+*/
 function updateBoard(){
   for(var i=0; i<8; i++){
     for(var j=0; j<8; j++){
@@ -85,6 +88,9 @@ function updateBoard(){
   updateStoneCount();
 }
 
+/**
+* 黒石白石の数をそれぞれ数えて描画する
+*/
 function updateStoneCount(){
   var blackStoneNum = 0;
   var whiteStoneNum = 0;
@@ -101,15 +107,41 @@ function updateStoneCount(){
   document.getElementById("whiteStoneNum").innerHTML = whiteStoneNum.toString();
 }
 
+/**
+* クリックされた座標情報をボードのインデックス情報に変更し返す
+*/
 function getCoordinateFromIndex(x, y){
   var board = document.getElementById('board');
   var rect = board.getBoundingClientRect();
   var coordinate = new Object();
-  coordinate.x = x*50 + rect.left - window.pageXOffset;
-  coordinate.y = y*50 + rect.top - window.pageYOffset;
+  coordinate.x = x*50 + rect.left - getX();//window.pageXOffset;
+  coordinate.y = y*50 + rect.top - getY();//window.pageYOffset;
   console.log(coordinate.x);
   console.log(coordinate.y);
   return coordinate;
+}
+
+function getX() {
+    var scroll;
+    if(window.pageXOffset != undefined){
+      scroll = window.pageXOffset;
+    }else{
+      scroll = document.documentElement.scrollLeft;
+    }
+    return scroll;
+}
+
+/**
+*
+**/
+function getY() {
+    var scroll;
+    if(window.pageYOffset != undefined){
+      scroll = window.pageYOffset;
+    }else{
+      scroll = document.documentElement.scrollTop;
+    }
+    return scroll;
 }
 
 function addStream(turn){
