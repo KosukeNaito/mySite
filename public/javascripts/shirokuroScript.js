@@ -114,13 +114,16 @@ function getCoordinateFromIndex(x, y){
   var board = document.getElementById('board');
   var rect = board.getBoundingClientRect();
   var coordinate = new Object();
-  coordinate.x = x*50 + rect.left - getX();//window.pageXOffset;
-  coordinate.y = y*50 + rect.top - getY();//window.pageYOffset;
+  coordinate.x = x*50 + rect.left - window.pageXOffset;
+  coordinate.y = y*50 + rect.top - window.pageYOffset;
   //console.log(coordinate.x);
   //console.log(coordinate.y);
   return coordinate;
 }
 
+/**
+* 横スクロールされた大きさを返す
+*/
 function getX() {
     var scroll;
     if(window.pageXOffset != undefined){
@@ -132,7 +135,7 @@ function getX() {
 }
 
 /**
-*
+*  縦スクロールされた大きさを返す
 **/
 function getY() {
     var scroll;
@@ -144,6 +147,10 @@ function getY() {
     return scroll;
 }
 
+/**
+* ボード情報の履歴に現在のボード情報を追加する
+* 引数にはそのボード状態の時どちらのターンであるかのBoardStateの値が入る
+*/
 function addStream(turn){
   var firstStream = new Object();
   firstStream.turn = turn;
@@ -151,6 +158,10 @@ function addStream(turn){
   boardStream.push(firstStream);
 }
 
+/**
+* ボタンが押されたとき対戦履歴(boardStream)をもとに一つ前のボード情報を描画する
+* またターンの変更も行う
+*/
 function onBackButton(){
   if(boardStream.length >= 2){
       boardState = $.extend(true, {}, boardStream[boardStream.length-2].board);
@@ -161,12 +172,15 @@ function onBackButton(){
     }
     boardStream.pop();
     updateBoard();
-    console.log("back");
+    //console.log("back");
     return;
   }
-  console.log("cantBack");
+  //console.log("cantBack");
 }
 
+/**
+* comボタンが押されたときボード情報をサーバに送りcomの行動後のボード情報文字列を受け取り描画する
+*/
 function onComButton(){
   playerTurn = false;
   var boardStateStr = getBoardStateStr();
@@ -179,8 +193,8 @@ function onComButton(){
       async: false,
       data: boardStateStr,
     }).done(function (data) {
-      console.log("done");
-      console.log(data);
+      //console.log("done");
+      //console.log(data);
       if(data.length == 64){
         var count = 0;
         for(var i=0; i<8; i++){
@@ -193,21 +207,27 @@ function onComButton(){
         updateBoard();
       }else if(data == "cantPut"){
         alert("置けませんでした。あなたのターンです");
-        console.log("cantPut");
+        //console.log("cantPut");
       }
       playerTurn = true;
     }).fail(function (jqXHR, statusText, errorThrown) {
-      console.log("fail");
+      //console.log("fail");
       alert('不明なエラーです。');
     }).always(function () {
-      console.log("always");
+      //console.log("always");
     });
 }
 
+/**
+* ページを読み込み、対戦を初期化する
+*/
 function onRestartButton(){
   location.href = '\\shirokuro';
 }
 
+/**
+* ボード情報からボード情報が羅列された文字列を作り返す
+*/
 function getBoardStateStr(){
   var boardStateStr = "";
   for(var i=0; i<8; i++){
@@ -218,15 +238,18 @@ function getBoardStateStr(){
   return boardStateStr;
 }
 
+/**
+* playerがボード上をクリックした際の処理
+*/
 function sendCoordinatePlayer(e){
   if(!playerTurn){
     alert("COMのターンです。COMボタンを押してください。")
-    console.log("not player turn");
+    //console.log("not player turn");
     return;
   }
   var coordinate = getIndexFromCoordinate(e.x, e.y);
   if(boardState[coordinate.x][coordinate.y] != BoardState.EMPTY){
-    console.log("stone is already put");
+    //console.log("stone is already put");
     return;
   }
   var xy = coordinate.x.toString() + coordinate.y.toString();
@@ -266,15 +289,17 @@ function sendCoordinatePlayer(e){
     });
 }
 
+/**
+* クリックされた座標情報を引数としてそれを元にボードのインデックス情報を返す
+*/
 function getIndexFromCoordinate(x, y){
   var board = document.getElementById('board');
   var rect = board.getBoundingClientRect();
   var coordinate = new Object();
-  console.log(getY());
-  coordinate.x = x + rect.left + window.pageXOffset;//getX();//window.pageXOffset;
-  coordinate.y = y + rect.top + window.pageYOffset;//getY();//window.pageYOffset;
-  console.log(coordinate.x);
-  console.log(coordinate.y);
+  coordinate.x = x - rect.left + window.pageXOffset;//getX();//window.pageXOffset;
+  coordinate.y = y - rect.top + window.pageYOffset;//getY();//window.pageYOffset;
+  //console.log(coordinate.x);
+  //console.log(coordinate.y);
   var isXdecided = true;
   var isYdecided = true;
   var index = new Object();
@@ -288,7 +313,7 @@ function getIndexFromCoordinate(x, y){
       isYdecided = false;
     }
   }
-  console.log(index.x);
-  console.log(index.y);
+  //console.log(index.x);
+  //console.log(index.y);
   return index;
 }
